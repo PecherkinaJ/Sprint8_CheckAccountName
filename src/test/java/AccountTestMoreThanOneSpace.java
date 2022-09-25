@@ -24,7 +24,7 @@ public class AccountTestMoreThanOneSpace {
             assertEquals(expected, actual);
         }
 
-        @Parameterized.Parameters
+        @Parameterized.Parameters(name="для <{0}> => {1}")
         public static Object[] data() {
             return new Object[][]{
                     {"Timo Ty Shalle", false},

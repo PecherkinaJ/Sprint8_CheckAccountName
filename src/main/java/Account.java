@@ -29,7 +29,7 @@ public class Account {
 
         if (name.length() >= 3 && name.length() <= 19) {
             if (name.contains(" ")) {
-                if (!name.startsWith(" ") || (!name.endsWith(" "))) {
+                if ((!name.startsWith(" ")) && (!name.endsWith(" "))) {
                     try {
                         String[] tempArray = name.split(" ");
                         if (tempArray.length == 2) {
@@ -41,7 +41,6 @@ public class Account {
                 }
             }
         }
-
         return false;
     }
 
