@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -15,6 +16,7 @@ public class AccoutTestSpaceInWrongPlace {
     }
 
     @Test
+    @DisplayName("Spaces are in wrong places")
     public void testCheckNameToEmboss(){
         Account account = new Account(toCheck);
         boolean actual = account.checkNameToEmboss();
