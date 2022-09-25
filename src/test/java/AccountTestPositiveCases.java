@@ -2,14 +2,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AccountTest {
+public class AccountTestPositiveCases {
     String toCheck;
     boolean expected;
 
-    public AccountTest(String toCheck, boolean expected) {
+    public AccountTestPositiveCases(String toCheck, boolean expected) {
         this.toCheck = toCheck;
         this.expected = expected;
     }
@@ -24,23 +24,6 @@ public class AccountTest {
     @Parameterized.Parameters
     public static Object[] data() {
         return new Object[][]{
-                {"", false},
-                {" ", false},
-                {"Timo Ty Shalle", false},
-                {"Тимо Ти Шале", false},
-                {" Tomoty Shalame", false},
-                {"Tomoty Shalame ", false},
-                {" Tomoty Shalame ", false},
-                {" Тимоти Шаламе", false},
-                {"Тимоти Шаламе ", false},
-                {" Тимоти Шаламе ", false},
-                {"Q", false},
-                {"Ь", false},
-                {"*", false},
-                {"Timoty ShalameShalame", false},
-                {"ТимотиТимоти ШаламеШаламе", false},
-                {"&$*%(#&%*$&#^$%*(@#$%&*", false},
-                {"&$*%(#&% *$&#^$%*(@#$%&*", false},
                 {"* *", true},
                 {"@#(*( @&&$*@", true},
                 {"Timoty Shalame", true},
@@ -51,5 +34,4 @@ public class AccountTest {
                 {"Т Ш", true},
         };
     }
-
 }
