@@ -3,20 +3,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AccountTestEmptyString {
+public class TestTooMuchLetters {
     String toCheck;
     boolean expected;
 
-    public AccountTestEmptyString(String toCheck, boolean expected) {
+    public TestTooMuchLetters(String toCheck, boolean expected) {
         this.toCheck = toCheck;
         this.expected = expected;
     }
 
     @Test
-    @DisplayName("Check empty string and one space in it")
+    @DisplayName("More than 19 letters")
     public void testCheckNameToEmboss(){
         Account account = new Account(toCheck);
         boolean actual = account.checkNameToEmboss();
@@ -26,9 +26,9 @@ public class AccountTestEmptyString {
     @Parameterized.Parameters(name="для <{0}> => {1}")
     public static Object[] data() {
         return new Object[][]{
-                {"", false},
-                {" ", false},
+                {"Timoty ShalameShalame", false},
+                {"ТимотиТимоти ШаламеШаламе", false},
+                {"&$*%(#&% *$&#^$%*(@#$%&*", false},
         };
     }
-
 }

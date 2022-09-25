@@ -6,11 +6,11 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AccoutTestNoSpaces {
+public class TestNoSpaces {
     String toCheck;
     boolean expected;
 
-    public AccoutTestNoSpaces(String toCheck, boolean expected) {
+    public TestNoSpaces(String toCheck, boolean expected) {
         this.toCheck = toCheck;
         this.expected = expected;
     }

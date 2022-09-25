@@ -6,17 +6,18 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AccoutTestSpaceInWrongPlace {
+public class TestMoreThanOneSpace {
+
     String toCheck;
     boolean expected;
 
-    public AccoutTestSpaceInWrongPlace(String toCheck, boolean expected) {
+    public TestMoreThanOneSpace(String toCheck, boolean expected) {
         this.toCheck = toCheck;
         this.expected = expected;
     }
 
     @Test
-    @DisplayName("Spaces are in wrong places")
+    @DisplayName("Check string with extra spaces")
     public void testCheckNameToEmboss(){
         Account account = new Account(toCheck);
         boolean actual = account.checkNameToEmboss();
@@ -26,11 +27,14 @@ public class AccoutTestSpaceInWrongPlace {
     @Parameterized.Parameters(name="для <{0}> => {1}")
     public static Object[] data() {
         return new Object[][]{
-                {"TomotyShalame ", false},
-                {" TomotyShalame", false},
-                {" TomotyShalame ", false},
-                {" ТимотиШаламе", false},
-                {"ТимотиШаламе ", false},
+                {"Timo Ty Shalle", false},
+                {" Timoty Shalame", false},
+                {"Timoty Shalame ", false},
+                {" Timoty Shalame ", false},
+                {"Тимо Ти Шале", false},
+                {"Тимоти Шаламе ", false},
+                {" Тимоти Шаламе ", false},
+                {" ТимотиШаламе ", false},
         };
     }
 

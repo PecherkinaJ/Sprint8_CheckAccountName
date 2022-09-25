@@ -6,17 +6,17 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AccountTestTooMuchLetters {
+public class TestPositiveCases {
     String toCheck;
     boolean expected;
 
-    public AccountTestTooMuchLetters(String toCheck, boolean expected) {
+    public TestPositiveCases(String toCheck, boolean expected) {
         this.toCheck = toCheck;
         this.expected = expected;
     }
 
     @Test
-    @DisplayName("More than 19 letters")
+    @DisplayName("Check positive cases")
     public void testCheckNameToEmboss(){
         Account account = new Account(toCheck);
         boolean actual = account.checkNameToEmboss();
@@ -26,9 +26,14 @@ public class AccountTestTooMuchLetters {
     @Parameterized.Parameters(name="для <{0}> => {1}")
     public static Object[] data() {
         return new Object[][]{
-                {"Timoty ShalameShalame", false},
-                {"ТимотиТимоти ШаламеШаламе", false},
-                {"&$*%(#&% *$&#^$%*(@#$%&*", false},
+                {"* *", true},
+                {"@#(*( @&&$*@", true},
+                {"Timoty Shalame", true},
+                {"Timoty ShalameShala", true},
+                {"T S", true},
+                {"Тимоти Шаламе", true},
+                {"ТимотиТимоти Шаламе", true},
+                {"Т Ш", true},
         };
     }
 }
